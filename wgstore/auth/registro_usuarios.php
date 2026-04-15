@@ -1,15 +1,22 @@
 <?php
 require_once "../config/db.php";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+     // Captura los datos del formulario
     $nombre = $_POST["nombre"];
     $email = $_POST["email"];
+
+    // Cifra la contraseña usando password_hash()
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuarios (nombre_user, email, password) VALUES (?, ?, ?)";
     $stmt = $conexion->prepare($sql);
 
     try {
+
+    // Ejecuta la consulta con los valores ingresados
         $stmt->execute([$nombre, $email, $password]);
         header("Location: login.php?success=1");
     } catch (PDOException $e) {

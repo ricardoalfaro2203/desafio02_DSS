@@ -1,8 +1,12 @@
 <?php
+// Inicia la sesión para poder almacenar datos del usuario autenticado
 session_start();
+// Importa la conexión a la base de datos usando PDO
 require_once "../config/db.php";
 
+// Verifica si el formulario fue enviado por método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Captura los datos enviados desde el formulario
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -10,9 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conexion->prepare($sql);
     $stmt->execute([$email]);
 
+     // Obtiene el usuario en forma de arreglo
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // este if verifica si el usuario existe y si la contraseña ingresada coincide con la almacenada en la base de datos (usando password_verify para comparar el hash)
     if ($usuario && password_verify($password, $usuario["password"])) {
+        // Guarda datos en sesión (usuario autenticado)
         $_SESSION["usuario"] = $usuario["nombre_user"];
         $_SESSION["usuario_id"] = $usuario["id"];
 
@@ -51,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit">Ingresar</button>
         </form>
 
-        <a class="link" href="register.php">Crear cuenta</a>
+        <a class="link" href="registro_usuarios.php">Crear cuenta</a>
     </div>
 </div>
 

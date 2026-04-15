@@ -9,9 +9,9 @@ if (!isset($_SESSION["usuario"])) {
 
 $usuario_id = $_SESSION["usuario_id"];
 
-// Productos
+// Consulta todos los productos disponibles
 $productos = $conexion->query("SELECT * FROM productos")->fetchAll(PDO::FETCH_ASSOC);
-// Compras
+// Consulta las compras del usuario usando JOIN
 $stmt = $conexion->prepare("
     SELECT p.nombre_producto, p.precio 
     FROM compras c
@@ -21,7 +21,7 @@ $stmt = $conexion->prepare("
 $stmt->execute([$usuario_id]);
 $compras = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Favoritos
+// Consulta los productos favoritos del usuario
 $stmt = $conexion->prepare("
     SELECT p.nombre_producto, p.precio 
     FROM favoritos f
