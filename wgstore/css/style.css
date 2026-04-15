@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+header {
+    background: #2f3640;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* CONTENEDOR */
+.container {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* TARJETAS DE PRODUCTOS */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card h3 {
+    margin: 0;
+}
+
+.precio {
+    color: green;
+    font-weight: bold;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.btn-comprar {
+    background: #44bd32;
+}
+
+.btn-fav {
+    background: #e84118;
+}
+
+.btn-logout {
+    background: #353b48;
+}
+
+/* SECCIONES */
+.section {
+    margin-top: 40px;
+}
+
+.lista {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+/* LOGIN / REGISTRO */
+
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #4cd137, #487eb0);
+}
+
+.auth-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.auth-box h2 {
+    margin-bottom: 20px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 10px;
+    background: #44bd32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.auth-box button:hover {
+    background: #2ecc71;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+.success {
+    color: green;
+    font-size: 14px;
+}
+
+.link {
+    margin-top: 15px;
+    display: block;
+}
+
+.section h2 {
+    margin-bottom: 15px;
+    color: #2f3640;
+}
+
+
+/* IMÁGENES */
+.img-producto {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* SLIDER */
+.slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+.slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.slider::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* TARJETAS MÁS PEQUEÑAS EN SLIDER */
+.slider .card {
+    min-width: 200px;
+}
